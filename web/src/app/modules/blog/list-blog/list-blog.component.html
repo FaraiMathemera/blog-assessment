@@ -1,0 +1,12 @@
+<div class="create-blog-container">
+  <h1>My Posts</h1>
+  <mat-card>
+    <mat-card-content>
+      <app-blog-item
+        *ngFor="let item of items"
+        [item]="item"
+        [list]="true"
+      ></app-blog-item>
+    </mat-card-content>
+  </mat-card>
+</div>

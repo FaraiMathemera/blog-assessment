@@ -1,0 +1,39 @@
+<div class="create-blog-container">
+  <h1>Create Post</h1>
+  <mat-card>
+    <form (ngSubmit)="onSubmit()">
+      <mat-card-content fxLayout="row">
+        <mat-form-field appearance="outline" class="full-width">
+          <input
+            matInput
+            placeholder="Enter the title"
+            [(ngModel)]="blog.title"
+            name="title"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <textarea
+            class="blog-text"
+            matInput
+            placeholder="Enter the body"
+            [(ngModel)]="blog.body"
+            name="body"
+            required
+          ></textarea>
+        </mat-form-field>
+        <div class="action-buttons">
+          <button mat-raised-button (click)="onBack()">Back</button>
+          <button
+            mat-stroked-button
+            color="primary"
+            class="save-button"
+            type="submit"
+          >
+            Save
+          </button>
+        </div>
+      </mat-card-content>
+    </form>
+  </mat-card>
+</div>

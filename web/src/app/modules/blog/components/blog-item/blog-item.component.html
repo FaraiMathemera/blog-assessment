@@ -1,0 +1,24 @@
+<div class="blog-preview">
+  <div class="author-info">
+    <img
+      src="../../../../assets/user.png"
+      alt="Author Picture"
+      class="author-pic"
+    />
+    <div class="author-details">
+      <h3 class="author-name">Author Name</h3>
+      <p class="author-handle">&#64;AuthorHandle</p>
+    </div>
+  </div>
+  <div class="blog-content">
+    <h1>{{ item.title }}</h1>
+    <p>
+      {{ item.body }}
+    </p>
+  </div>
+  <div class="blog-actions">
+    <button class="like-btn">Like</button>
+    <button *ngIf="list" class="delete-btn">Delete</button>
+    <button class="share-btn">Share</button>
+  </div>
+</div>
