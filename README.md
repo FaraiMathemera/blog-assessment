@@ -19,6 +19,8 @@ No installation needed
 - Home shows all posts
 - My Blogs shows posts you have created
 - From My Blogs you should be able to edit and delete posts
+- Token expires in 1hr
+- You may need to login again if you struggle with access
 
   
 ## Swagger Docs
