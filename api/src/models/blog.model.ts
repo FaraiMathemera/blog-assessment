@@ -5,6 +5,8 @@ class Blog extends Model {
   public id!: number;
   public title!: string;
   public body!: string;
+  public like!: boolean;
+  public userId!: number;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
 }
@@ -25,6 +27,7 @@ Blog.init(
       allowNull: false,
     },
     like: { type: new DataTypes.BOOLEAN(), allowNull: false },
+    userId: { type: new DataTypes.INTEGER(), allowNull: false },
   },
   {
     tableName: "Blogs",

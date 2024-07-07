@@ -9,6 +9,7 @@ import { DataService } from '../../../services/data.service';
 })
 export class CreateEditBlogComponent implements OnInit {
   id: number;
+  userId: number;
   loaded: boolean = false;
   blog: any = {
     title: '',
@@ -20,6 +21,7 @@ export class CreateEditBlogComponent implements OnInit {
     private blogService: DataService
   ) {
     this.id = +this.route.snapshot.params['post_id'];
+    this.userId = localStorage.getItem('userId') as unknown as number;
   }
 
   ngOnInit() {
@@ -27,6 +29,8 @@ export class CreateEditBlogComponent implements OnInit {
       this.blog = {
         title: '',
         body: '',
+        like: false,
+        userId: this.userId,
       };
       this.loaded = true;
     } else {
@@ -34,6 +38,8 @@ export class CreateEditBlogComponent implements OnInit {
         this.blog = {
           title: x.title,
           body: x.body,
+          like: x.like,
+          userId: x.userId,
         };
       });
       this.loaded = true;
