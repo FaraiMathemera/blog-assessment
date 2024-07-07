@@ -44,9 +44,10 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.userService
       .login(this.auth.username, this.auth.password)
-      .subscribe((token) => {
-        if (token) {
-          localStorage.setItem('authToken', token);
+      .subscribe((response) => {
+        if (response.token) {
+          localStorage.setItem('authToken', response.token);
+          localStorage.setItem('userId', response.userId);
           this.router.navigateByUrl('/');
         } else {
           let config = new MatSnackBarConfig();

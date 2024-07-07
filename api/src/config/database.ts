@@ -1,12 +1,12 @@
-import { Sequelize } from 'sequelize';
-import dotenv from 'dotenv';
+import { Sequelize } from "sequelize";
+import dotenv from "dotenv";
 
 dotenv.config();
 
-const sequelize = new Sequelize(process.env.DB_NAME!, process.env.DB_USER!, process.env.DB_PASSWORD!, {
-  host: process.env.DB_HOST,
-  dialect: 'mysql',
-  port: Number(process.env.DB_PORT),
+const sequelize = new Sequelize("blogdb", "admin", "blogpassword", {
+  host: "blog-db.cdriq2ocopfi.us-east-1.rds.amazonaws.com",
+  dialect: "mysql",
+  port: Number(3306),
 });
 
 export default sequelize;

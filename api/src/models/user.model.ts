@@ -58,3 +58,40 @@ User.init(
 );
 
 export default User;
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     User:
+ *       type: object
+ *       required:
+ *         - email
+ *         - password
+ *       properties:
+ *         id:
+ *           type: number
+ *           description: Id of user auto increment
+ *         name:
+ *           type: string
+ *           description: Name of user
+ *         surname:
+ *           type: string
+ *           description: Surname of user
+ *         email:
+ *           type: string
+ *           description: Email of user
+ *         password:
+ *           type: string
+ *           description: User password
+ *         locked:
+ *           type: boolean
+ *           description: Whether user is locked from logging in
+ *       example:
+ *         id: 1
+ *         name: John
+ *         surname: Doe
+ *         email: Sample Email
+ *         password: Sample Email
+ *         locked: false
+ */

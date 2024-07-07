@@ -14,7 +14,7 @@ export const createBlog = async (req: Request, res: Response) => {
 };
 
 export const updateBlog = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = req.params.id;
   const { title, body } = req.body;
   try {
     const blog = await Blog.findByPk(id);
@@ -49,6 +49,7 @@ export const deleteBlog = async (req: Request, res: Response) => {
 export const getAllBlogs = async (_req: Request, res: Response) => {
   try {
     const blogs = await Blog.findAll();
+    console.log(blogs);
     res.status(200).json(blogs);
   } catch (error) {
     res.status(500).json({ message: "Error fetching blogs", error });
@@ -59,6 +60,15 @@ export const getMyBlogs = async (_req: Request, res: Response) => {
   try {
     const blogs = await Blog.findAll({ where: { userId: +_req.params.id } });
     res.status(200).json(blogs);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching blogs", error });
+  }
+};
+
+export const getBlog = async (_req: Request, res: Response) => {
+  try {
+    const blog = await Blog.findOne({ where: { id: +_req.params.id } });
+    res.status(200).json(blog);
   } catch (error) {
     res.status(500).json({ message: "Error fetching blogs", error });
   }

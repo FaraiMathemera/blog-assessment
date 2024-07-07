@@ -6,6 +6,7 @@ import { ListBlogComponent } from './list-blog/list-blog.component';
 const routes: Routes = [
   { path: '', component: ListBlogComponent },
   { path: 'new', component: CreateEditBlogComponent },
+  { path: 'edit/:post_id', component: CreateEditBlogComponent },
   { path: 'posts', component: ListBlogComponent },
 ];
 

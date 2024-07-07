@@ -16,7 +16,7 @@ export class AuthInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const token = this.userService.getToken();
+    const token = localStorage.getItem('authToken');
     if (token) {
       request = request.clone({
         setHeaders: {

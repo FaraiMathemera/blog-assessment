@@ -4,8 +4,6 @@ import { MatCardModule } from '@angular/material/card';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './modules/home/home.component';
-import { TimelineComponent } from './modules/blog/components/timeline/timeline.component';
-import { BlogItemComponent } from './modules/blog/components/blog-item/blog-item.component';
 import { BlogModule } from './modules/blog/blog.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -19,6 +17,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { JwtModule } from '@auth0/angular-jwt';
 import { UserService } from './services/users.service';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { AuthGuard } from './services/auth.guard';
+import { MatIconModule } from '@angular/material/icon';
 
 export function tokenGetter() {
   return localStorage.getItem('authToken');
@@ -43,13 +43,13 @@ export function tokenGetter() {
     MatFormFieldModule,
     MatInputModule,
     MatSnackBarModule,
+    MatIconModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ['localhost:3000'],
-        disallowedRoutes: [
-          'localhost:3000/api/users/',
-          'localhost:3000/api/users/register',
+        allowedDomains: [
+          'https://2uz7g4lamkotcyrcliblozzgs40huvow.lambda-url.us-east-1.on.aws',
+          'localhost:4200',
         ],
       },
     }),
@@ -57,6 +57,7 @@ export function tokenGetter() {
   providers: [
     UserService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    AuthGuard,
   ],
   bootstrap: [AppComponent],
 })

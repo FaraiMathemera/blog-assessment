@@ -11,6 +11,7 @@ import { CreateEditBlogComponent } from './create-edit-blog/create-edit-blog.com
 import { ListBlogComponent } from './list-blog/list-blog.component';
 import { ViewBlogComponent } from './view-blog/view-blog.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { BlogItemComponent } from './components/blog-item/blog-item.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 
@@ -31,6 +32,7 @@ import { TimelineComponent } from './components/timeline/timeline.component';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
+    MatIconModule,
   ],
 })
 export class BlogModule {}

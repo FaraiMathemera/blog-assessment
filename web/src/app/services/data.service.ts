@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 
@@ -15,16 +15,26 @@ export class DataService {
     return this.http.get(this.apiUrl);
   }
 
+  getBlog(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}${id}`);
+  }
+
   getMyBlogs(id: number): Observable<any> {
-    return this.http.get(this.apiUrl + id);
+    return this.http.get(this.apiUrl + 'all/' + id);
   }
 
   createBlog(blog: any): Observable<any> {
-    return this.http.post(this.apiUrl, blog);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http.post(this.apiUrl, blog, { headers });
   }
 
   updateBlog(id: number, blog: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${id}`, blog);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http.put(`${this.apiUrl}/${id}`, blog, { headers });
   }
 
   deleteBlog(id: number): Observable<any> {

@@ -22,10 +22,12 @@ export const login = async (req: Request, res: Response) => {
   try {
     const user = await User.findOne({ where: { email } });
     if (user && user.validPassword(password)) {
-      const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET!, {
+      const token = jwt.sign({ id: user.id }, "my_jwt_secret", {
         expiresIn: "1h",
       });
-      res.status(200).json({ message: "Login successful", token });
+      res
+        .status(200)
+        .json({ message: "Login successful", token, userId: user.id });
     } else {
       res.status(401).json({ message: "Invalid email or password" });
     }

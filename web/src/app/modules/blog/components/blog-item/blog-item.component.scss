@@ -1,0 +1,12 @@
+mat-icon {
+  cursor: pointer;
+  margin: 0 8px;
+
+  &.liked {
+    color: red;
+  }
+
+  &.not-liked {
+    color: gray;
+  }
+}

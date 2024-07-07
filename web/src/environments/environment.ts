@@ -1,4 +1,5 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000/api/',
+  apiUrl:
+    'https://2uz7g4lamkotcyrcliblozzgs40huvow.lambda-url.us-east-1.on.aws/api/',
 };

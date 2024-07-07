@@ -9,9 +9,10 @@ import { DataService } from '../../../services/data.service';
 export class ListBlogComponent {
   constructor(private blogService: DataService) {}
   items: any;
-  id: number = 1;
+
   ngOnInit() {
-    this.blogService.getMyBlogs(this.id).subscribe((x) => {
+    const id = localStorage.getItem('userId') as unknown as number;
+    this.blogService.getMyBlogs(id).subscribe((x) => {
       this.items = x;
     });
   }
